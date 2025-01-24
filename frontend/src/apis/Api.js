@@ -49,6 +49,8 @@ export const deleteUserApi = (id) => Api.delete(`api/users/deleteUser/${id}`)
 
 export const completeRequestApi = (id, data) => Api.post(`/api/users/complete/${id}`, data)
 export const getUserList = (data) => Api.get('/api/users/getAllUsers', data)
+export const updateProviderPriceApi = (id, data) =>
+    Api.put(`/api/provider/price/${id}`, data);
 
 
 

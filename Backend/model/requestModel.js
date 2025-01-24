@@ -26,14 +26,14 @@ const requestSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: false
-    },
-    
+  },
+
 
   completed: {
     type: Boolean,
     default: false
   },
-  
+
 });
 
 const Requests = mongoose.model('requests', requestSchema);

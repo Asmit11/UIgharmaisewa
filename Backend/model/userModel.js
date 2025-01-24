@@ -56,7 +56,15 @@ const userSchema = mongoose.Schema({
   coordinates: { // Add coordinates field
     latitude: { type: Number, required: false },
     longitude: { type: Number, required: false },
-  }
+  },
+
+
+  price: {
+    type: Number,
+    required: false,
+  },
+
+
 }
 );
 

@@ -25,6 +25,29 @@ const getAllProviders = async(req ,res) =>{
         res.status(500).json("Server Error")
     }
 }
+const updateProviderPrice = async (req, res) => {
+  const { id } = req.params;
+  const { price } = req.body;
+
+  if (!price) {
+    return res.status(400).json({ success: false, message: 'Price is required' });
+  }
+
+  try {
+    const provider = await Users.findById(id);
+    if (!provider || !provider.provider) {
+      return res.status(404).json({ success: false, message: 'Provider not found' });
+    }
+
+    provider.price = price;
+    await provider.save();
+
+    res.json({ success: true, message: 'Price updated successfully' });
+  } catch (error) {
+    console.error('Error updating price:', error);
+    res.status(500).json({ success: false, message: 'Server error' });
+  }
+};
 const getSingleProvider= async(req,res)=>{
     const id = req.params.id;
     if(!id){
@@ -211,5 +234,5 @@ const getFeedback = async (req, res) => {
 
 
 module.exports = {
-    getAllProviders,getRequest,acceptRequest,rejectRequest,createNotification,getFeedback,getSingleProvider,topRatedProvider
+    getAllProviders,getRequest,acceptRequest,rejectRequest,createNotification,getFeedback,getSingleProvider,topRatedProvider,updateProviderPrice
 }
