@@ -480,7 +480,7 @@ const Services = () => {
                   />
                   <div className="flex justify-between items-center mt-4">
                     <button
-                      className="text-white p-2 rounded-full bg-[#A3E5F0] hover:bg-[#A3E5F0] transition-colors duration-300"
+                      className="text-black p-2 rounded-full bg-[#A3E5F0] hover:bg-[#A3E5F0] transition-colors duration-300"
                       onClick={(e) => handleRequest(e, provider)}
                     >
                       BOOK
@@ -556,7 +556,7 @@ const Services = () => {
             </div>
             <div className="flex justify-between mt-6">
               <button
-                className="bg-[#A3E5F0] text-black px-6 py-2 rounded-xl font-semibold hover:bg-blue-600"
+                className="bg-[#A3E5F0] text-black px-6 py-2 rounded-xl font-semibold hover:bg-[#A3E5F0]"
                 onClick={handleBooking}
               >
                 Book

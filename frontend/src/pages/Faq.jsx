@@ -10,7 +10,7 @@ const faqs = [
   },
   {
     question: "How can I Book a service in Ghar Mai Sewa?",
-    answer: "Users can browse through a list of service providers, view their profiles and reviews, and request services directly through the app. Service providers can accept or reject requests based on their availability."
+    answer: "Users can browse through a list of service providers, view their profiles and prices, and request services directly through the app. Service providers can accept or reject requests based on their availability."
   },
   {
     question: "What should I do if I face any issues?",

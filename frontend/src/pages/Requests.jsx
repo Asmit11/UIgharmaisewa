@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { getActivatedRequestsApi, completeRequestApi, cancelRequestApi } from '../apis/Api'; // Ensure this API function is defined
-import Example from '../components/Navbar';
-import Rating from 'react-rating-stars-component';
 import KhaltiCheckout from 'khalti-checkout-web';
+import React, { useEffect, useState } from 'react';
+import Rating from 'react-rating-stars-component';
+import { toast } from 'react-toastify';
+import { cancelRequestApi, completeRequestApi, getActivatedRequestsApi } from '../apis/Api'; // Ensure this API function is defined
+import Example from '../components/Navbar';
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
@@ -48,12 +48,12 @@ const Requests = () => {
     }
   };
 
-  const handleComplete = (requestId,price) => {
+  const handleComplete = (requestId, price) => {
     setSelectedRequest(requestId);
-    handlePayment(requestId,price);
+    handlePayment(requestId, price);
   };
 
-  const handlePayment = (requestId,price) => {
+  const handlePayment = (requestId, price) => {
     const config = {
       publicKey: 'test_public_key_a2d80d14c47d4cd08b7af9965ec4f477',
       productIdentity: requestId,
@@ -78,7 +78,7 @@ const Requests = () => {
       paymentPreference: ['KHALTI']
     };
     const checkout = new KhaltiCheckout(config);
-    checkout.show({ amount:price  });
+    checkout.show({ amount: 50 * 100 });
   };
 
   const submitRating = async () => {
@@ -150,7 +150,7 @@ const Requests = () => {
                     {!request.completed ? (
                       <div>
                         <button
-                          onClick={() => handleComplete(request._id,request.price)}
+                          onClick={() => handleComplete(request._id, request.price)}
                           className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300 mr-2"
                         >
                           Complete
@@ -194,7 +194,7 @@ const Requests = () => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-5 rounded-lg shadow-lg">
             <h2 className="text-lg font-bold mb-4">Rate the Provider</h2>
-            <Rating 
+            <Rating
               count={5}
               value={rating}
               onChange={(value) => setRating(value)}
@@ -223,3 +223,4 @@ const Requests = () => {
 };
 
 export default Requests;
+
